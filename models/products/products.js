@@ -1,11 +1,12 @@
 'use strict';
 
-const Collection = require('../file-data-model.js');
-const Product = require('./product.js');
+const Collection = require('../collection.js');
+const schema = require('./product.js');
 
 class Products extends Collection {
   constructor() {
-    super(Product);
+    super();
+    this.schema = schema;
   }
 }
 

@@ -1,12 +1,12 @@
 'use strict';
 
-const MemCollection = require('../memory-data-model.js');
-const Category = require('./category.js');
+const Collection = require('../collection.js');
+const schema = require('./category.js');
 
-
-class Categories extends MemCollection {
+class Categories extends Collection {
   constructor() {
-    super(Category);
+    super();
+    this.schema = schema;
   }
 }
 

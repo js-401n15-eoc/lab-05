@@ -5,7 +5,6 @@ let Validator = require('../lib/validator.js');
 let validator = new Validator();
 
 class Model {
-
   constructor(schema, data) {
     this.schema = schema;
     data.id = uuid();

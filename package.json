@@ -15,11 +15,13 @@
   "license": "ISC",
   "dependencies": {
     "@code-fellows/supergoose": "^1.0.1",
+    "dotenv": "^8.2.0",
     "eslint": "^5.6.1",
     "lolex": "^5.1.2",
     "mongoose": "^5.8.9"
   },
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "supergoose": "^0.2.6"
   }
 }
