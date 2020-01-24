@@ -5,8 +5,6 @@ describe('Products Collection', () => {
 
   let products;
   let obj;
-  let badObj;
-  let fakeId;
 
   beforeEach(() => {
     products = new Products();
@@ -29,16 +27,7 @@ describe('Products Collection', () => {
       price: 999,
       weight: 7,
       quantity_in_stock: 999,
-    }
-
-    badObj = {
-      category_id: 5555,
-      price: 'too much',
-      weight: '1 lb',
-      quantity_in_stock: 10,
     };
-
-    fakeId = 'asdfasldkj31412341234';
   });
 
   it('can create() a new product', () => {

@@ -47,3 +47,28 @@ products.create(prodObj)
     });
   })
   .catch(e => console.error('ERR ', e));
+
+  const catObj = {
+    name: 'Index Category',
+  }
+
+  const newCat = {
+    name: 'Dat New Cat',
+  };
+
+  categories.create(catObj)
+  .then(() => categories.get())
+  .then(data => {
+    console.log('Data from the get: ', data);
+    categories.update(data[0].id, newCat)
+    .then(updateData => {
+      console.log('Data after the update: ', updateData);
+      categories.delete(updateData.id).then(deleteData => {
+        console.log('Category deleted: ', deleteData);
+        categories.get().then(leftovers => {
+          console.log('Categories left: ', leftovers);
+        })
+      });
+    });
+  })
+  .catch(e => console.error('ERR ', e));

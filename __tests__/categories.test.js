@@ -5,8 +5,6 @@ describe('Categories Collection', () => {
 
   let categories;
   let obj;
-  let badObj;
-  let fakeId;
 
   beforeEach(() => {
     categories = new Categories();
@@ -21,15 +19,6 @@ describe('Categories Collection', () => {
     editObj = {
       name: 'Edited Test Category',
     };
-
-    // badObj = {
-    //   category_id: 5555,
-    //   price: 'too much',
-    //   weight: '1 lb',
-    //   quantity_in_stock: 10,
-    // };
-
-    // fakeId = 'asdfasldkj31412341234';
   });
 
   it('can create() a new category', () => {
