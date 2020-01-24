@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 const Categories = require('./models/categories/categories.js');
 const Products = require('./models/products/products.js');
 
-// const categories = new Categories();
+const categories = new Categories();
 const products = new Products();
 
 console.log('testing 1-2-3');
