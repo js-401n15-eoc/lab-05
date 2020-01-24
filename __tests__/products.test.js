@@ -5,6 +5,8 @@ describe('Products Collection', () => {
 
   let products;
   let obj;
+  let obj2;
+  let editObj;
 
   beforeEach(() => {
     products = new Products();
@@ -14,7 +16,7 @@ describe('Products Collection', () => {
       weight: 0.5,
       quantity_in_stock: 10,
     };
-  
+
     obj2 = {
       category_id: '777',
       price: 711,
@@ -32,11 +34,11 @@ describe('Products Collection', () => {
 
   it('can create() a new product', () => {
     return products.create(obj)
-    .then(data =>{
-      Object.keys(obj).forEach(key => {
-        expect(data[key]).toEqual(obj[key]);
-      });
-    }).catch(e => console.error('ERR', e));
+      .then(data => {
+        Object.keys(obj).forEach(key => {
+          expect(data[key]).toEqual(obj[key]);
+        });
+      }).catch(e => console.error('ERR', e));
   });
 
   it('can get() a product', () => {
@@ -68,21 +70,21 @@ describe('Products Collection', () => {
 
   it('can delete() a product', () => {
     return products.create(obj)
-    .then(() => {
-      return products.create(obj2)
-      .then(createData => {
-        return products.get(createData.id)
-          .then(getData => {
-            return products.update(getData.id, editObj)
-              .then(updateData => {
-                return products.delete(updateData.id)
-                  .then(deletedData => {
-                    return products.get(deletedData.id).
-                      then(emptyData => {
-                        expect(!!deletedData.id).toEqual(true);
-                        expect(emptyData).toEqual(null);
-                      })
-                    });
+      .then(() => {
+        return products.create(obj2)
+          .then(createData => {
+            return products.get(createData.id)
+              .then(getData => {
+                return products.update(getData.id, editObj)
+                  .then(updateData => {
+                    return products.delete(updateData.id)
+                      .then(deletedData => {
+                        return products.get(deletedData.id).
+                          then(emptyData => {
+                            expect(!!deletedData.id).toEqual(true);
+                            expect(emptyData).toEqual(null);
+                          })
+                      });
                   });
               });
           });
